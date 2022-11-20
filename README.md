@@ -1,4 +1,5 @@
 # node-colorful-logger
+![Coverage](https://img.shields.io/codecov/c/github/FaureAlexis/node-colorful-logger) ![Stars](https://img.shields.io/github/stars/FaureAlexis/node-colorful-logger?style=social)
 
 A simple logger with colors &amp; timestamp, without useless dependencies. 
 
