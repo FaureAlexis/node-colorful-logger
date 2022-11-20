@@ -36,6 +36,7 @@ output :
 ```
 
  With colors : 
- ![Colorful output](https://github.com/FaureAlexis/node-colorful-logger/blob/main/image.jpg?raw=true)
+ 
+ ![Colorful output](https://github.com/FaureAlexis/node-colorful-logger/blob/main/image.png?raw=true)
  
  
