@@ -3,8 +3,8 @@ import fs from 'fs';
 import util from 'util';
 
 export class Logger {
-  log_file: any;
-  error_file: any;
+  logFile: any;
+  errorFile: any;
   output?: string;
   debugMode: boolean;
   log: Log = {
@@ -17,8 +17,8 @@ export class Logger {
     this.debugMode = false;
     if (output) {
       this.output = output;
-      this.log_file = fs.createWriteStream(output + '.log', { flags: 'w' });
-      this.error_file = fs.createWriteStream(output + '.error.log', { flags: 'w' });
+      this.logFile = fs.createWriteStream(output + '.log', { flags: 'w' });
+      this.errorFile = fs.createWriteStream(output + '.error.log', { flags: 'w' });
     }
   };
 
@@ -107,14 +107,14 @@ export class Logger {
 
   writeErrorLog(log: string, fileLog: string) {
     if (this.output) {
-      this.error_file.write(util.format(fileLog) + '\n');
+      this.errorFile.write(util.format(fileLog) + '\n');
     }
     console.error(log);
   };
 
   writeLog(log: string, fileLog: string) {
     if (this.output) {
-      this.log_file.write(util.format(fileLog) + '\n');
+      this.logFile.write(util.format(fileLog) + '\n');
     }
     console.log(log);
   };
