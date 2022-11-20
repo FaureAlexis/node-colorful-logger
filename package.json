@@ -1,0 +1,35 @@
+{
+  "name": "node-colorful-logger",
+  "version": "1.0.0",
+  "description": "A simple logger with colors &amp; timestamp, without dependencies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "nodemon",
+    "build": "rimraf build && tsc",
+    "start": "npm run build && node build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FaureAlexis/node-colorful-logger.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FaureAlexis/node-colorful-logger/issues"
+  },
+  "homepage": "https://github.com/FaureAlexis/node-colorful-logger#readme",
+  "devDependencies": {
+    "@types/jest": "^29.2.3",
+    "@types/node": "^18.11.9",
+    "jest": "^29.3.1",
+    "nodemon": "^2.0.20",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.0",
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.3"
+  }
+}
