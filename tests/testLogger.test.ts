@@ -108,7 +108,13 @@ describe('Testing Logger', () => {
     logger.disableDebugMode();
   });
   it('Create a log and write it to a log file', () => {
-    const FileLogger = new Logger('test.log');
-    expect(FileLogger.output).toBe('test.log');
+    const FileLogger = new Logger('test');
+    logger.success('Success log', Services.API);
+    expect(FileLogger.output).toBe('test');
+  });
+  it('Create an error log and write to a log file', () => {
+    const FileLogger = new Logger('test');
+    logger.error('Error log', Services.API);
+    expect(FileLogger.output).toBe('test');
   });
 });
