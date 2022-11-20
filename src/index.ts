@@ -1,6 +1,10 @@
 import { LogType, Log, LogColor, Services } from "./types/logger";
+import fs from 'fs';
+import util from 'util';
 
 export class Logger {
+  log_file: any;
+  error_file: any;
   output?: string;
   debugMode: boolean;
   log: Log = {
@@ -13,6 +17,8 @@ export class Logger {
     this.debugMode = false;
     if (output) {
       this.output = output;
+      this.log_file = fs.createWriteStream(output + '.log', { flags: 'w' });
+      this.error_file = fs.createWriteStream(output + '.error.log', { flags: 'w' });
     }
   };
 
@@ -99,14 +105,32 @@ export class Logger {
     this.debugMode = false;
   };
 
+  writeErrorLog(log: string, fileLog: string) {
+    if (this.output) {
+      this.error_file.write(util.format(fileLog) + '\n');
+    }
+    console.error(log);
+  };
+
+  writeLog(log: string, fileLog: string) {
+    if (this.output) {
+      this.log_file.write(util.format(fileLog) + '\n');
+    }
+    console.log(log);
+  };
+
   createLog() {
     const color: string = this.log.color;
-    const end = LogColor.END;
-    const finalString: string = `${this.getDate()} - ${color}${this.log.type} - ${this.log.service} - ${this.log.message}${end}`;
-    if (this.log.type === LogType.ERROR) {
-      console.error(finalString);
+    const end: string = LogColor.END;
+    let logString: string;
+    let fileString: string;
+    if (this.log.service !== undefined) {
+      logString = `${this.getDate()} - ${color}${this.log.type} - ${this.log.service} - ${this.log.message}${end}`;
+      fileString = `${this.getDate()} - ${this.log.type} - ${this.log.service} - ${this.log.message}`;
     } else {
-      console.log(finalString);
+      logString = `${this.getDate()} - ${color}${this.log.type} - ${this.log.message}${end}`;
+      fileString = `${this.getDate()} - ${this.log.type} - ${this.log.message}`;
     }
+    this.log.type === LogType.ERROR ? this.writeErrorLog(logString, fileString) : this.writeLog(logString, fileString);
   };
 };
