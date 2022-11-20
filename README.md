@@ -3,6 +3,12 @@
 
 A simple logger with colors &amp; timestamp, without useless dependencies. 
 
+### Installation
+
+```bash
+npm i node-colorful-logger
+```
+
 ### Usage
 
 Logger which write logs to stdout
