@@ -27,7 +27,7 @@ export enum LogColor {
 
 export interface Log {
   type: LogType
-  message: String | undefined;
+  message: string | undefined;
   color: LogColor
   service?: Services
 }

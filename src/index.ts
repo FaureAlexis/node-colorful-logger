@@ -1,4 +1,4 @@
-import { LogType, Log, LogColor, Services } from "../types/logger";
+import { LogType, Log, LogColor, Services } from "./types/logger";
 
 export class Logger {
   output?: string;
