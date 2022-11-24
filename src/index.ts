@@ -1,4 +1,4 @@
-import { LogType, Log, LogColor, Services } from "./types/logger";
+import { LogType, Log, LogColor, Services } from './types/logger';
 import fs from 'fs';
 import util from 'util';
 
@@ -20,11 +20,11 @@ export class Logger {
       this.logFile = fs.createWriteStream(output + '.log', { flags: 'w' });
       this.errorFile = fs.createWriteStream(output + '.error.log', { flags: 'w' });
     }
-  };
+  }
 
   getDate() {
     return new Date().toLocaleString('fr-FR');
-  };
+  }
 
   info(message: string, service?: Services) {
     this.log.type = LogType.INFO;
@@ -33,10 +33,10 @@ export class Logger {
     if (service) {
       this.log.service = service;
     } else {
-        this.log.service = undefined;
+      this.log.service = undefined;
     }
     this.createLog();
-  };
+  }
 
   success(message: string, service?: Services) {
     this.log.type = LogType.SUCCESS;
@@ -45,10 +45,10 @@ export class Logger {
     if (service) {
       this.log.service = service;
     } else {
-        this.log.service = undefined;
+      this.log.service = undefined;
     }
     this.createLog();
-  };
+  }
 
   warn(message: string, service?: Services) {
     this.log.type = LogType.WARN;
@@ -57,10 +57,10 @@ export class Logger {
     if (service) {
       this.log.service = service;
     } else {
-        this.log.service = undefined;
+      this.log.service = undefined;
     }
     this.createLog();
-  };
+  }
 
   error(message: string, service?: Services) {
     this.log.type = LogType.ERROR;
@@ -69,10 +69,10 @@ export class Logger {
     if (service) {
       this.log.service = service;
     } else {
-        this.log.service = undefined;
+      this.log.service = undefined;
     }
     this.createLog();
-  };
+  }
 
   debug(message: string, service?: Services) {
     if (this.debugMode) {
@@ -95,29 +95,29 @@ export class Logger {
         this.log.service = undefined;
       }
     }
-  };
+  }
 
   enableDebugMode() {
     this.debugMode = true;
-  };
+  }
 
   disableDebugMode() {
     this.debugMode = false;
-  };
+  }
 
   writeErrorLog(log: string, fileLog: string) {
     if (this.output) {
       this.errorFile.write(util.format(fileLog) + '\n');
     }
     console.error(log);
-  };
+  }
 
   writeLog(log: string, fileLog: string) {
     if (this.output) {
       this.logFile.write(util.format(fileLog) + '\n');
     }
     console.log(log);
-  };
+  }
 
   createLog() {
     const color: string = this.log.color;
@@ -132,5 +132,5 @@ export class Logger {
       fileString = `${this.getDate()} - ${this.log.type} - ${this.log.message}`;
     }
     this.log.type === LogType.ERROR ? this.writeErrorLog(logString, fileString) : this.writeLog(logString, fileString);
-  };
-};
+  }
+}
