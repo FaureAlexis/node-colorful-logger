@@ -1,6 +1,13 @@
 # node-colorful-logger
+![Coverage](https://img.shields.io/codecov/c/github/FaureAlexis/node-colorful-logger) ![Stars](https://img.shields.io/github/stars/FaureAlexis/node-colorful-logger?style=social) ![NPM](https://img.shields.io/npm/dt/node-colorful-logger)
 
 A simple logger with colors &amp; timestamp, without useless dependencies. 
+
+### Installation
+
+```bash
+npm i node-colorful-logger
+```
 
 ### Usage
 
