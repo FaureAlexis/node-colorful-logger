@@ -1,6 +1,6 @@
 {
   "name": "node-colorful-logger",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A simple logger with colors &amp; timestamp, without dependencies.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
