@@ -1,7 +1,8 @@
 # node-colorful-logger
+
 ![Coverage](https://img.shields.io/codecov/c/github/FaureAlexis/node-colorful-logger) ![Stars](https://img.shields.io/github/stars/FaureAlexis/node-colorful-logger?style=social) ![NPM](https://img.shields.io/npm/dt/node-colorful-logger)
 
-A simple logger with colors &amp; timestamp, without useless dependencies. 
+A simple logger with colors &amp; timestamp, without useless dependencies.
 
 ### Installation
 
@@ -20,7 +21,7 @@ const logger = new Logger();
 Below example create a logger which write logs in stdout/err and in log files ('./app.log')
 
 ```ts
-import { Logger } from "node-colorful-logger";
+import { Logger } from 'node-colorful-logger';
 const logger = new Logger(process.cwd() + '/app');
 
 logger.info('Info log');
@@ -34,6 +35,7 @@ logger.disableDebugMode();
 ```
 
 output :
+
 ```
 20/11/2022, 12:02:00 - INFO - Info log         //stdout
 20/11/2022, 12:02:00 - SUCCESS - Success log   //stdout
@@ -42,8 +44,6 @@ output :
 20/11/2022, 12:02:00 - DEBUG - Debug log (with debug mode) //stdout
 ```
 
- With colors : 
- 
- ![Colorful output](https://github.com/FaureAlexis/node-colorful-logger/blob/main/image.png?raw=true)
- 
- 
+With colors :
+
+![Colorful output](https://github.com/FaureAlexis/node-colorful-logger/blob/main/image.png?raw=true)

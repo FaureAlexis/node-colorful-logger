@@ -1,13 +1,13 @@
-import { verify } from "crypto";
-import { Logger } from "../src/index";
-import { LogType, Services, LogColor } from "../src/types/logger";
+import { verify } from 'crypto';
+import { Logger } from '../src/index';
+import { LogType, Services, LogColor } from '../src/types/logger';
 import DoneCallback = jest.DoneCallback;
 
 describe('Testing Logger', () => {
   let logger: Logger;
   beforeAll(() => {
     logger = new Logger();
-  })
+  });
   afterAll((done: DoneCallback) => {
     done();
   });
